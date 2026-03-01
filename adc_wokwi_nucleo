@@ -1,0 +1,16 @@
+#define ANALOG_PIN PA0
+
+  void setup(){
+    Serial.begin(9600);
+    pinMode(ANALOG_PIN,INPUT);
+
+  }
+
+  void loop(){
+    int adcValue = analogRead(ANALOG_PIN);
+
+    Serial.print("ADC VALUE");
+    Serial.println(adcValue);
+    delay(1000);
+
+  }
