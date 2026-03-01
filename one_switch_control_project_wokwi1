@@ -1,47 +1,33 @@
 #include <OneButton.h>
-
-
 OneButton button(A0, true);
-
-
 #define L1 2
 #define L2 3
 #define L3 4
-
 bool RLY1 = LOW;
 bool RLY2 = LOW;
 bool RLY3 = LOW;
-
 void setup() {
   pinMode(L1, OUTPUT);
   pinMode(L2, OUTPUT);
   pinMode(L3, OUTPUT);
-
   digitalWrite(L1, RLY1);
   digitalWrite(L2, RLY2);
   digitalWrite(L3, RLY3);
-
   button.attachClick(singleClick);
   button.attachDoubleClick(doubleClick);
   button.attachLongPressStop(longClick);
 }
-
 void loop() {
   button.tick();  
 }
-
-
-
 void singleClick() {
   RLY1 = !RLY1;
   digitalWrite(L1, RLY1);
 }
-
 void doubleClick() {
   RLY2 = !RLY2;
   digitalWrite(L2, RLY2);
 }
-
 void longClick() {
   RLY3 = !RLY3;
   digitalWrite(L3, RLY3);
